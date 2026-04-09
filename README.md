@@ -1,64 +1,157 @@
-# 🔍 Support AI: Ticket Classification & Prioritization
+# Support AI: Ticket Classification and Prioritization
 
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white) 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) 
-![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
-
-An intelligent system built using Machine Learning to automate help-desk operations, ensuring faster response times and efficient ticket routing.
+An intelligent Machine Learning system that automates help-desk ticket categorization and prioritization, enabling faster response times and efficient support workflows.
 
 ---
 
-## 🚀 Overview
-Customer support teams often struggle with high volumes of unorganized tickets. This project provides an AI-powered solution to:
-- **Automatically Categorize**: Sort tickets into types such as Technical Issue, Billing, Account Access, etc.
-- **Assign Priority**: Identify the urgency (High, Medium, Low) based on the customer's description in real-time.
-- **Optimize Operations**: Help support managers focus on high-impact issues first, reducing backlog.
+## Project Overview
 
-## 🧠 The Machine Learning Pipeline
-Our system uses a sophisticated NLP workflow to process and analyze incoming text:
-1. **Text Preprocessing**: Custom cleaning using `nltk` (lowercasing, punctuation removal, stopword filtering, and lemmatization).
-2. **Feature Extraction**: Converting raw text into numerical significance using **TF-IDF Vectorization**.
-3. **Classification**: Utilizing **LinearSVC** (Support Vector Classifier) for robust, high-dimensional text separation.
+Support teams often receive large volumes of unstructured customer tickets. Manually reviewing and routing them slows response time and increases operational overhead.
 
-## 🛠️ Technology Stack
-- **Python 3.13**: Core programming.
-- **NLTK**: Advanced Natural Language Processing.
-- **Scikit-Learn**: Machine learning infrastructure.
-- **Streamlit**: Modern, interactive web interface.
-- **Pandas**: Efficient data manipulation.
-- **Joblib**: Model persistence and caching.
+Support AI addresses this problem by automatically:
 
-## 📁 Project Structure
-- `preprocess.py`: The heart of our text cleaning pipeline.
-- `train_model.py`: Automates data downloading, preprocessing, and model training.
-- `evaluate.py`: Detailed performance analytics and confusion matrix generation.
-- `app.py`: The professional, interactive dashboard for end-users.
+* Categorizing tickets into issue types such as Technical Issue, Billing, and Account Access
+* Assigning urgency levels such as High, Medium, and Low
+* Improving response efficiency using Natural Language Processing techniques
 
-## ⚙️ Quick Start
+This project demonstrates a complete machine learning pipeline including preprocessing, training, evaluation, and deployment through an interactive dashboard.
 
-### 1. Install Dependencies
-```bash
+---
+
+## Key Features
+
+* Automatic ticket classification
+* Priority prediction based on ticket content
+* NLP preprocessing using NLTK
+* TF-IDF feature extraction
+* LinearSVC classification models
+* Performance evaluation with confusion matrices
+* Interactive Streamlit web interface
+* Persistent trained models using Joblib
+
+---
+
+## Technology Stack
+
+| Tool                   | Purpose                                 |
+| ---------------------- | --------------------------------------- |
+| Python 3.13            | Core programming language               |
+| Scikit-Learn           | Model training and TF-IDF vectorization |
+| NLTK                   | Text preprocessing                      |
+| Pandas                 | Data manipulation                       |
+| Streamlit              | Web interface                           |
+| Joblib                 | Model persistence                       |
+| Matplotlib and Seaborn | Visualization                           |
+
+---
+
+## Project Structure
+
+```
+Support-AI/
+│
+├── preprocess.py        # Text cleaning pipeline
+├── train_model.py       # Model training and saving
+├── evaluate.py          # Performance evaluation scripts
+├── app.py               # Streamlit dashboard
+├── models/              # Saved trained models
+├── data/                # Dataset storage (if applicable)
+└── README.md            # Project documentation
+```
+
+---
+
+## Installation Guide
+
+### Step 1: Clone the Repository
+
+```
+git clone https://github.com/yourusername/support-ai-ticket-classifier.git
+cd support-ai-ticket-classifier
+```
+
+### Step 2: Install Dependencies
+
+```
 pip install pandas scikit-learn nltk streamlit joblib matplotlib seaborn
 ```
 
-### 2. Train and Evaluate
-```bash
+---
+
+## Model Training
+
+Run the following command to train the models:
+
+```
 python train_model.py
+```
+
+This step performs dataset loading, preprocessing, model training, and model saving.
+
+---
+
+## Model Evaluation
+
+Run the evaluation script:
+
+```
 python evaluate.py
 ```
 
-### 3. Launch the Dashboard
-```bash
+This generates:
+
+* Precision scores
+* Recall scores
+* F1-scores
+* Confusion matrix visualizations
+
+---
+
+## Run the Web Application
+
+Start the Streamlit application:
+
+```
 streamlit run app.py
 ```
 
-## 📊 Performance & Insights
-The system generates visual feedback for every training run. This allows stakeholders to understand where the model is confident and where it needs more data.
-- **Confusion Matrices**: Visualize common ticket overlaps.
-- **Metrics Summary**: Detailed F1-score and Recall reports for each ticket category.
+Then open the local URL displayed in the terminal (typically http://localhost:8501).
+
+The interface allows users to enter ticket text and receive predicted category and priority level.
 
 ---
-### 🌟 Future Interns - Machine Learning Task 2
-*Developed with focus on real-world operational ML.*
 
-# FUTURE_ML_02
+## Example Use Case
+
+Input:
+
+"I cannot access my account after resetting my password."
+
+Output:
+
+Category: Account Access
+Priority: High
+
+---
+
+## Future Improvements
+
+* Integration of transformer-based models such as BERT
+* Support for multilingual ticket classification
+* REST API deployment using FastAPI
+* Cloud deployment support
+* Real-time ticket routing integration
+
+---
+
+## Author
+
+Developed for Future Interns – Machine Learning Task 2 (2026)
+
+Project Code: FUTURE_ML_02
+
+---
+
+## License
+
+This project is intended for educational and internship evaluation purposes.
